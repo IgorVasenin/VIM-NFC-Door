@@ -34,6 +34,17 @@ def unlock():
         return jsonify({"message": "Door unlocked"}), 200
     else:
         return jsonify({"message": "Access denied"}), 403
+        # app.py (дополнение)
+from flask import render_template
+
+@app.route('/register', methods=['GET'])
+def register_form():
+    return render_template('register.html')
+
+@app.route('/unlock', methods=['GET'])
+def unlock_form():
+    return render_template('unlock.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
